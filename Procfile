@@ -1,1 +1,1 @@
-web: gunicorn string_analyzer_service.wsgi
+web: gunicorn string_analyzer.wsgi
