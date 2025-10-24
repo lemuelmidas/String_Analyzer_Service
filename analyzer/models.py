@@ -1,11 +1,13 @@
 from django.db import models
-from django.utils import timezone
 
 class AnalyzedString(models.Model):
-    sha256_hash = models.CharField(max_length=64, primary_key=True)
-    value = models.TextField()
-    properties = models.JSONField()
-    created_at = models.DateTimeField(default=timezone.now)
+    text = models.TextField()
+    length = models.IntegerField()
+    is_palindrome = models.BooleanField()
+    unique_characters = models.IntegerField()
+    word_count = models.IntegerField()
+    sha256_hash = models.CharField(max_length=64)
+    character_frequency_map = models.JSONField()
 
     def __str__(self):
-        return self.value[:30]
+        return self.text[:50]

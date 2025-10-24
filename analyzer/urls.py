@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import StringListCreateView, StringDetailView, NaturalLanguageFilterView
+from .views import StringListCreateView
 
 urlpatterns = [
-    path("", StringListCreateView.as_view()),  # GET (list), POST (create)
-    path("filter-by-natural-language", NaturalLanguageFilterView.as_view()),
-    path("<path:string_value>", StringDetailView.as_view()),  # GET/DELETE
+    path('strings/', StringListCreateView.as_view(), name='string-list-create'),
 ]
